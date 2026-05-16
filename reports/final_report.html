@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Student Success and Dropout Prediction Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.55; margin: 40px auto; max-width: 1040px; color: #202124; }
+    h1, h2 { color: #1f2937; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0 28px; }
+    th, td { border: 1px solid #d0d7de; padding: 8px 10px; text-align: left; }
+    th { background: #f3f4f6; }
+    figure { margin: 28px 0; }
+    img { max-width: 100%; border: 1px solid #d0d7de; }
+    .metric { font-weight: 700; color: #1d4ed8; }
+    @media print { body { margin: 24px; } figure { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <h1>A Comparative Study of ML and DL for Predicting Student Success and Dropout</h1>
+  <p><strong>Team 11</strong> | Final Project Report</p>
+
+  <h2>Objective</h2>
+  <p>This project predicts whether students are likely to drop out, remain enrolled, or graduate. The study compares classical machine learning models with a neural network model and interprets the key features behind the predictions.</p>
+
+  <h2>Dataset and Method</h2>
+  <p>The dataset contains 4,424 higher-education student records. Preprocessing included duplicate removal, stratified train/test split, standardization, one-hot encoding, and optional PCA/SMOTE experiments.</p>
+
+  <h2>Main Result</h2>
+  <p>The best model was <span class="metric">random_forest_smote</span>, with macro F1 <span class="metric">0.7035</span> and accuracy <span class="metric">0.7559</span>.</p>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>accuracy</th>
+      <th>macro_precision</th>
+      <th>macro_recall</th>
+      <th>macro_f1</th>
+      <th>weighted_f1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>random_forest_smote</td>
+      <td>0.7559</td>
+      <td>0.7082</td>
+      <td>0.7035</td>
+      <td>0.7035</td>
+      <td>0.7582</td>
+    </tr>
+    <tr>
+      <td>random_forest_base</td>
+      <td>0.7514</td>
+      <td>0.7086</td>
+      <td>0.7040</td>
+      <td>0.7027</td>
+      <td>0.7557</td>
+    </tr>
+    <tr>
+      <td>random_forest_tuned</td>
+      <td>0.7514</td>
+      <td>0.7086</td>
+      <td>0.7040</td>
+      <td>0.7027</td>
+      <td>0.7557</td>
+    </tr>
+    <tr>
+      <td>random_forest</td>
+      <td>0.7627</td>
+      <td>0.7116</td>
+      <td>0.6941</td>
+      <td>0.7006</td>
+      <td>0.7584</td>
+    </tr>
+    <tr>
+      <td>logistic_regression_smote</td>
+      <td>0.7345</td>
+      <td>0.7055</td>
+      <td>0.7057</td>
+      <td>0.6960</td>
+      <td>0.7472</td>
+    </tr>
+    <tr>
+      <td>logistic_regression_base</td>
+      <td>0.7299</td>
+      <td>0.7056</td>
+      <td>0.7055</td>
+      <td>0.6936</td>
+      <td>0.7443</td>
+    </tr>
+    <tr>
+      <td>logistic_regression_tuned</td>
+      <td>0.7299</td>
+      <td>0.7056</td>
+      <td>0.7055</td>
+      <td>0.6936</td>
+      <td>0.7443</td>
+    </tr>
+    <tr>
+      <td>logistic_regression</td>
+      <td>0.7288</td>
+      <td>0.7049</td>
+      <td>0.7047</td>
+      <td>0.6927</td>
+      <td>0.7434</td>
+    </tr>
+  </tbody>
+</table>
+
+  <figure>
+    <img src="figures/model_performance.png" alt="Model performance">
+    <figcaption>Top model performance by macro F1.</figcaption>
+  </figure>
+  <figure>
+    <img src="figures/experiment_comparison.png" alt="PCA and SMOTE comparison">
+    <figcaption>Effect of PCA and SMOTE on model performance.</figcaption>
+  </figure>
+  <figure>
+    <img src="figures/feature_importance.png" alt="Feature importance">
+    <figcaption>Most important predictors from the Random Forest model.</figcaption>
+  </figure>
+  <figure>
+    <img src="figures/best_confusion_matrix.png" alt="Confusion matrix">
+    <figcaption>Confusion matrix for the best-performing model.</figcaption>
+  </figure>
+
+  <h2>Interpretation</h2>
+  <p>Random Forest performed best overall, which fits the characteristics of a small tabular dataset. The MLP model was competitive but did not outperform the strongest classical ML model. Semester-level academic progress variables, especially approved curricular units and grades, were the most influential predictors.</p>
+
+  <h2>Conclusion</h2>
+  <p>The model is best understood as a decision-support early-warning system. It can help identify students who may need support, but should not be used as a final decision-making authority for individual students.</p>
+</body>
+</html>

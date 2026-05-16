@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Student Success Prediction Slides</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #111827; color: #f9fafb; }
+    section { min-height: 100vh; box-sizing: border-box; padding: 64px 84px; display: flex; flex-direction: column; justify-content: center; border-bottom: 1px solid #374151; }
+    h1 { font-size: 44px; margin: 0 0 28px; max-width: 980px; }
+    ul { font-size: 28px; line-height: 1.5; }
+    img { max-width: 860px; max-height: 520px; background: white; padding: 10px; border-radius: 4px; }
+    @media print { section { min-height: 720px; page-break-after: always; } body { background: white; color: black; } }
+  </style>
+</head>
+<body>
+  <section><h1>A Comparative Study of ML and DL for Predicting Student Success and Dropout</h1><ul><li>Team 11</li>
+<li>Final Project Presentation</li></ul></section><section><h1>Problem and Goal</h1><ul><li>Predict Dropout, Enrolled, and Graduate</li>
+<li>Support early intervention for students at risk</li></ul></section><section><h1>Dataset</h1><ul><li>4,424 student records</li>
+<li>Tabular higher-education data</li>
+<li>Three target classes</li></ul></section><section><h1>Preprocessing</h1><ul><li>Stratified train/test split</li>
+<li>Standardization and one-hot encoding</li>
+<li>PCA and SMOTE experiments</li></ul></section><section><h1>Models</h1><ul><li>Logistic Regression</li>
+<li>SVM with RBF kernel</li>
+<li>Random Forest</li>
+<li>MLP with SGD/backpropagation</li></ul></section><section><h1>Performance</h1><ul><li>Best model: random_forest_smote</li>
+<li>Macro F1: 0.7035</li>
+<li>Accuracy: 0.7559</li>
+<img src="figures/model_performance.png" alt="performance"></ul></section><section><h1>PCA and SMOTE</h1><ul><li>SMOTE slightly improved Random Forest</li>
+<li>PCA generally reduced performance</li>
+<img src="figures/experiment_comparison.png" alt="experiments"></ul></section><section><h1>Feature Importance</h1><ul><li>Semester approved units and grades were strongest</li>
+<li>Tuition payment status was also important</li>
+<img src="figures/feature_importance.png" alt="importance"></ul></section><section><h1>Error Analysis</h1><ul><li>The Enrolled class was hardest to classify</li>
+<li>It is an intermediate academic state</li>
+<img src="figures/best_confusion_matrix.png" alt="confusion matrix"></ul></section><section><h1>Conclusion</h1><ul><li>Random Forest performed best for this dataset</li>
+<li>MLP was competitive but not superior</li>
+<li>Best practical use: decision-support early-warning system</li></ul></section>
+</body>
+</html>
